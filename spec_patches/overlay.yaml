@@ -1,0 +1,75 @@
+overlay: 1.0.0
+info:
+  title: Jira API Overlay
+  version: 1.0.0
+  description: |
+    This overlay resolves issues with the officially provided OpenAPI specification for the Jira API.
+actions:
+  # info
+  - target: servers[0]
+    update:
+      url: https://{your-domain}
+  # schemas
+  - target: $.components.schemas["WorkflowCondition"]
+    remove: true
+  - target: $.components.schemas["WorkflowCompoundCondition"]
+    remove: true
+  - target: $.components.schemas["WorkflowSimpleCondition"]
+    remove: true
+  - target: $.components.schemas["WorkflowRules"].properties["conditionsTree"]
+    remove: true
+  - target: $.components.schemas["JqlQueryClause"]
+    remove: true
+  - target: $.components.schemas["CompoundClause"]
+    remove: true
+  - target: $.components.schemas["JqlQuery"].properties["where"]
+    remove: true
+  # enum
+  - target: $.components.schemas["ApprovalConfiguration"].properties["exclude"].enum
+    remove: true
+  #- target: $.components.schemas["ApprovalConfiguration"].properties["exclude"]
+  #  update:
+  #    - description: "A list of roles that should be excluded as possible approvers."
+  #      items:
+  #        description: A list of roles that should be excluded as possible approvers.
+  #        enum:
+  #          - assignee
+  #          - reporter
+  #        nullable: true
+  #        type: string
+  #      nullable: true
+  #      type: array
+
+  #- target: $.components.schemas["ExcludeEnumValues"]
+  #  update:
+  #    type: string
+  #    enum:
+  #      - "assignee"
+  #      - "reporter"
+  #    description: "A role that can be excluded as a possible approver."
+  #    nullable: true
+
+#  # methods
+#  - target: $.paths["/wiki/rest/api/content/{id}/child/attachment"].put
+#    remove: true
+#  - target: $.paths["/wiki/rest/api/content/{id}/child/attachment"].post
+#    remove: true
+#  - target: $.paths["/wiki/rest/api/content/{id}/child/attachment/{attachmentId}/data"].post
+#    remove: true
+#  # parameters
+#  - target: $.paths["/wiki/rest/api/search"].get.parameters[?(@.name=='_')]
+#    remove: true
+
+#  - target: $.components.schemas["ContentMetadata"].additionalProperties
+#    remove: true
+#  - target: $.components.schemas["ContentProperty"].additionalProperties
+#    remove: true
+#  - target: $.components.schemas["Version"].additionalProperties
+#    remove: true
+#  # content
+#  - target: $.components.schemas["Content"].properties
+#    update:
+#      ari:
+#        type: string
+#      base64EncodedAri:
+#        type: string

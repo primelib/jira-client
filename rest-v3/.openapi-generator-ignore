@@ -1,8 +1,0 @@
-README.md
-settings.gradle.kts
-renovate.json
-gradlew.bat
-gradlew
-gradle/wrapper/gradle-wrapper.properties
-gradle/wrapper/gradle-wrapper.jar
-.gitignore

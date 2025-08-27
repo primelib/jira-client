@@ -1,60 +1,40 @@
-release: true
-modules:
-  # source: https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/#version
-  - name: jira-rest-v2
-    dir: rest-v2
-    spec_file: openapi.json
-    spec_format: openapi
-    spec_url: https://dac-static.atlassian.com/cloud/jira/platform/swagger.v3.json
-    spec_script: |
-      jq '.info.title="Jira REST V2"' "$1" | sponge "$1" # overwrite name
-      jq '.components.schemas.Attachment.properties.size."x-name-overwrite"="fileSize"' "$1" | sponge "$1" # size is usually a reserved word on a Map
-      jq '.paths."/rest/api/2/issuesecurityschemes/search".get.description="Returns a paginated list of issue security schemes."' "$1" | sponge "$1" # description is broken
-      jq 'del(.components.schemas.Fields.properties.issuetype)' "$1" | sponge "$1" # remove duplicate property
-      jq 'walk(if type == "object" and .additionalProperties and (.properties | length > 0) then del(.additionalProperties) else . end)' "$1" | sponge "$1" # remove additionalProperties from all schemas
-    config:
-      generatorName: prime-client-java-feign
-      invokerPackage: io.github.primelib.jira4j.restv2
-      apiPackage: io.github.primelib.jira4j.restv2.api
-      modelPackage: io.github.primelib.jira4j.restv2.model
-      enablePostProcessFile: true
-      globalProperty:
-        supportingFiles: false
-      additionalProperties:
-        projectName: jira4j-rest-v2
-        projectDescription: A Java Wrapper for the Jira REST API
-        projectArtifactGroupId: io.github.primelib
-        projectArtifactId: jira4j-rest-v2
-        projectMaintainerId: PhilippHeuer
-        projectMaintainerName: Philipp Heuer
-        projectMaintainerEMail: git@philippheuer.me
-        jsonIncludeNonNull: true
-  # source: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/#version
-  - name: jira-rest-v3
-    dir: rest-v3
-    spec_file: openapi.json
-    spec_format: openapi
-    spec_url: https://dac-static.atlassian.com/cloud/jira/platform/swagger-v3.v3.json
-    spec_script: |
-      jq '.info.title="Jira REST V3"' "$1" | sponge "$1" # overwrite name
-      jq '.components.schemas.Attachment.properties.size."x-name-overwrite"="fileSize"' "$1" | sponge "$1" # size is usually a reserved word on a Map
-      jq '.paths."/rest/api/3/issuesecurityschemes/search".get.description="Returns a paginated list of issue security schemes."' "$1" | sponge "$1" # description is broken
-      jq 'del(.components.schemas.Fields.properties.issuetype)' "$1" | sponge "$1" # remove duplicate property
-      jq 'walk(if type == "object" and .additionalProperties and (.properties | length > 0) then del(.additionalProperties) else . end)' "$1" | sponge "$1" # remove additionalProperties from all schemas
-    config:
-      generatorName: prime-client-java-feign
-      invokerPackage: io.github.primelib.jira4j.restv3
-      apiPackage: io.github.primelib.jira4j.restv3.api
-      modelPackage: io.github.primelib.jira4j.restv3.model
-      enablePostProcessFile: true
-      globalProperty:
-        supportingFiles: false
-      additionalProperties:
-        projectName: jira4j-rest-v3
-        projectDescription: A Java Wrapper for the Jira REST API
-        projectArtifactGroupId: io.github.primelib
-        projectArtifactId: jira4j-rest-v3
-        projectMaintainerId: PhilippHeuer
-        projectMaintainerName: Philipp Heuer
-        projectMaintainerEMail: git@philippheuer.me
-        jsonIncludeNonNull: true
+# yaml-language-server: $schema=https://raw.githubusercontent.com/primelib/primecodegen/main/configschema/primelib-v1.json
+output: sdk
+outputSubDir: true
+
+repository:
+  name: Jira REST Client
+  description: Unofficial API client generated from the Jira OpenAPI specification.
+  url: https://github.com/primelib/jira-client
+  licenseName: MIT
+  licenseURL: https://github.com/primelib/jira-client/blob/main/LICENSE
+
+maintainers:
+  - id: PhilippHeuer
+    name: Philipp Heuer
+    email: git@philippheuer.de
+
+spec:
+  file: openapi.yaml
+  type: openapi3
+  sources:
+    # source: https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/#about
+    - url: https://dac-static.atlassian.com/cloud/jira/platform/swagger.v3.json
+      type: openapi3
+      patches:
+        - type: openapi-overlay
+          file: spec_patches/overlay.yaml
+  patches:
+    - id: simplify-polymorphic-schemas
+    - id: flatten-components
+    - id: fix-missing-schema-title
+    - id: generate-operation-id
+      config:
+        trim-prefix: "/rest/api"
+    - id: fix-common
+
+presets:
+  java:
+    enabled: true
+    groupId: io.github.primelib
+    artifactId: jira4j-rest-v2

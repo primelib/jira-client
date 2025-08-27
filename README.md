@@ -1,106 +1,34 @@
-# *Jira4J*
+# *JIRA API Client*
 
-> A java client for the JIRA REST APIs.
+Confluence is a web-based corporate wiki developed by Australian software company Atlassian.
 
-## Module: REST-V3
+- [Jira](https://www.atlassian.com/software/jira)
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.primelib/jira4j-rest-v3)](https://central.sonatype.com/artifact/io.github.primelib/jira4j-rest-v3)
-[![javadoc](https://javadoc.io/badge2/io.github.primelib/jira4j-rest-v3/javadoc.svg)](https://javadoc.io/doc/io.github.primelib/jira4j-rest-v3)
+## API Specification
 
-### Installation
+This repository includes API specifications from the following sources:
 
-```gradle
-implementation("io.github.primelib:jira4j-rest-v3:<latestVersion>")
-```
+- [Jira REST API](https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/#about)
 
-[Click to view instructions for other build tools](https://central.sonatype.com/artifact/io.github.primelib/jira4j-rest-v3).
+## Libraries
 
-### Usage
+> **⚠️ Unofficial**
+>
+> This repository and the generated SDKs are unofficial and are not maintained, endorsed, or sponsored by Atlassian, or any other original API providers.
+> Use at your own risk. Consult the official API documentation and terms of service of each provider before integrating.
 
-*Consumer Specification Approach*
-
-```java
-JiraRESTV3ConsumerApi client = JiraRESTV3Factory.create(spec -> {
-    spec.baseUrl("https://your-domain.atlassian.net");
-    spec.api(JiraRESTV3ConsumerApi.class);
-    spec.bearerAuth(authSpec -> {
-        authSpec.token("<your-personal-access-token>");
-    });
-});
-
-client.getIssue(spec -> {
-    spec.issueIdOrKey("TEST-1");
-});
-```
-
-*Parameter Approach*
-
-```java
-JiraRESTV3Api client = JiraRESTV3Factory.create(spec -> {
-    spec.baseUrl("https://your-domain.atlassian.net");
-    spec.api(JiraRESTV3Api.class);
-    spec.bearerAuth(authSpec -> {
-        authSpec.token("<your-personal-access-token>");
-    });
-});
-
-client.getIssue("TEST-1", null, null, null, null, null);
-```
-
-**_NOTE:_** The `Parameter Approach` can break if the API changes. The `Consumer Specification Approach` is more resilient to API changes.
-
-## Module: REST-V2
-
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.primelib/jira4j-rest-v2)](https://central.sonatype.com/artifact/io.github.primelib/jira4j-rest-v2)
-[![javadoc](https://javadoc.io/badge2/io.github.primelib/jira4j-rest-v2/javadoc.svg)](https://javadoc.io/doc/io.github.primelib/jira4j-rest-v2)
-
-### Installation
-
-```gradle
-implementation("io.github.primelib:jira4j-rest-v2:<latestVersion>")
-```
-
-[Click to view instructions for other build tools](https://central.sonatype.com/artifact/io.github.primelib/jira4j-rest-v2).
-
-### Usage
-
-*Consumer Specification Approach*
-
-```java
-JiraRESTV2ConsumerApi client = JiraRESTV2Factory.create(spec -> {
-    spec.baseUrl("https://your-domain.atlassian.net");
-    spec.api(JiraRESTV2ConsumerApi.class);
-    spec.bearerAuth(authSpec -> {
-        authSpec.token("<your-personal-access-token>");
-    });
-});
-
-client.getIssue(spec -> {
-    spec.issueIdOrKey("TEST-1");
-});
-```
-
-*Parameter Approach*
-
-```java
-JiraRESTV2Api client = JiraRESTV2Factory.create(spec -> {
-    spec.baseUrl("https://your-domain.atlassian.net");
-    spec.api(JiraRESTV2Api.class);
-    spec.bearerAuth(authSpec -> {
-        authSpec.token("<your-personal-access-token>");
-    });
-});
-
-client.getIssue("TEST-1", null, null, null, null, null);
-```
-
-**_NOTE:_** The `Parameter Approach` can break if the API changes. The `Consumer Specification Approach` is more resilient to API changes.
-
-## Links
-
-- [Documentation](https://primelib.github.io)
-- [Contribute](https://primelib.github.io/contribution/)
+- [Java](sdk/java/README.md)
 
 ## License
 
-Released under the [MIT License](./LICENSE).
+### API Specifications License
+
+API specifications are included for development and code generation purposes only.
+
+- Copyright and ownership of each API specification remain with the respective original rights holders.
+- Inclusion of these specifications in this repository does **not** imply any affiliation, endorsement, or sponsorship by the respective companies.
+- Please consult the terms of service or license provided by each API owner before using these specifications or integrating with their APIs.
+
+### Code License
+
+The generated code in this repository (`/sdk`) is licensed under the [MIT License](./LICENSE).
