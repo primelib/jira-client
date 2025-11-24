@@ -3,7 +3,7 @@ output: sdk
 outputSubDir: true
 
 repository:
-  name: Jira REST Client
+  name: Jira Client
   description: Unofficial API client generated from the Jira OpenAPI specification.
   url: https://github.com/primelib/jira-client
   licenseName: MIT
@@ -14,26 +14,34 @@ maintainers:
     name: Philipp Heuer
     email: git@philippheuer.de
 
+provider:
+  productDescription: |-
+    Jira is a software product developed by Atlassian that allows bug tracking, issue tracking and agile project management.
+    Jira is used by a large number of clients and users globally for project, time, requirements, task, bug, change, code, test, release, sprint management.
+  organizations: ["Atlassian"]
+  documentation:
+    - name: JIRA API Documentation
+      url: https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/#about
+
 spec:
   file: openapi.yaml
   type: openapi3
   sources:
-    # source: https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/#about
     - url: https://dac-static.atlassian.com/cloud/jira/platform/swagger.v3.json
       type: openapi3
       patches:
         - type: openapi-overlay
           file: spec_patches/overlay.yaml
+  patchSets:
+    - code-generation
   patches:
-    - id: simplify-polymorphic-schemas
-    - id: flatten-components
-    - id: fix-missing-schema-title
     - id: generate-operation-id
       config:
         trim-prefix: "/rest/api"
-    - id: fix-common
 
 presets:
+  scaffolding:
+    enabled: true
   java:
     enabled: true
     groupId: io.github.primelib
