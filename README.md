@@ -1,27 +1,31 @@
-# *JIRA API Client*
+# *Jira Client*
 
-Confluence is a web-based corporate wiki developed by Australian software company Atlassian.
 
-- [Jira](https://www.atlassian.com/software/jira)
+Jira is a software product developed by Atlassian that allows bug tracking, issue tracking and agile project management.
+Jira is used by a large number of clients and users globally for project, time, requirements, task, bug, change, code, test, release, sprint management.
+
+
+**Links**:
+- [JIRA API Documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/#about)
+
 
 ## API Specification
 
 This repository includes API specifications from the following sources:
-
-- [Jira REST API](https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/#about)
+- [https://dac-static.atlassian.com/cloud/jira/platform/swagger.v3.json](https://dac-static.atlassian.com/cloud/jira/platform/swagger.v3.json)
 
 ## Libraries
-
 > **⚠️ Unofficial**
 >
 > This repository and the generated SDKs are unofficial and are not maintained, endorsed, or sponsored by Atlassian, or any other original API providers.
 > Use at your own risk. Consult the official API documentation and terms of service of each provider before integrating.
 
-- [Java](sdk/java/README.md)
+
+- [java](sdk/java/README.md)
 
 ## License
 
-### API Specifications License
+### API Specification License
 
 API specifications are included for development and code generation purposes only.
 
