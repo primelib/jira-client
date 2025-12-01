@@ -9854,7 +9854,7 @@ public interface JiraClientApi {
     })
     List<Project> get2ProjectRecentV1(
             @Nullable @Param("expand") String expand,
-            @Nullable @Param("properties") List<StringList> properties
+            @Nullable @Param("properties") List<String> properties
     );
 
     /**
@@ -9934,7 +9934,7 @@ public interface JiraClientApi {
             @Nullable @Param("action") String action,
             @Nullable @Param("expand") String expand,
             @Nullable @Param("status") List<String> status,
-            @Nullable @Param("properties") List<StringList> properties,
+            @Nullable @Param("properties") List<String> properties,
             @Nullable @Param("propertyQuery") String propertyQuery
     );
 

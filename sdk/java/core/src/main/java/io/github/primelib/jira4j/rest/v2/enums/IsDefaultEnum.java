@@ -14,8 +14,8 @@ import javax.annotation.processing.Generated;
 @JsonTypeName("IsDefaultEnum")
 @Generated(value = "io.github.primelib.primecodegen")
 public enum IsDefaultEnum {
-    FALSE("false"),
-    TRUE("true"),
+    FALSE(false),
+    TRUE(true),
     ;
 
     private final boolean value;

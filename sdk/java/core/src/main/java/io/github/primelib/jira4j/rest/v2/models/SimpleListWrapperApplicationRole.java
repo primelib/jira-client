@@ -27,7 +27,7 @@ import org.jetbrains.annotations.ApiStatus;
 public class SimpleListWrapperApplicationRole {
 
     @JsonProperty("callback")
-    protected ListWrapperCallbackApplicationRole callback;
+    protected Object callback;
 
     @JsonProperty("items")
     protected List<ApplicationRole> items;
@@ -36,7 +36,7 @@ public class SimpleListWrapperApplicationRole {
     protected Integer maxResults;
 
     @JsonProperty("pagingCallback")
-    protected ListWrapperCallbackApplicationRole pagingCallback;
+    protected Object pagingCallback;
 
     @JsonProperty("size")
     protected Integer size;
@@ -69,7 +69,7 @@ public class SimpleListWrapperApplicationRole {
      * @param size size
      */
     @ApiStatus.Internal
-    public SimpleListWrapperApplicationRole(ListWrapperCallbackApplicationRole callback, List<ApplicationRole> items, Integer maxResults, ListWrapperCallbackApplicationRole pagingCallback, Integer size) {
+    public SimpleListWrapperApplicationRole(Object callback, List<ApplicationRole> items, Integer maxResults, Object pagingCallback, Integer size) {
         this.callback = callback;
         this.items = items;
         this.maxResults = maxResults;
@@ -83,7 +83,7 @@ public class SimpleListWrapperApplicationRole {
      *
      * @return callback
      */
-    public ListWrapperCallbackApplicationRole callback() {
+    public Object callback() {
         return this.callback;
     }
 
@@ -93,7 +93,7 @@ public class SimpleListWrapperApplicationRole {
      * @param callback callback
      * @return this
      */
-    public SimpleListWrapperApplicationRole callback(ListWrapperCallbackApplicationRole callback) {
+    public SimpleListWrapperApplicationRole callback(Object callback) {
         this.callback = callback;
         return this;
     }
@@ -104,7 +104,7 @@ public class SimpleListWrapperApplicationRole {
      * @return callback
      */
     @JsonProperty("callback")
-    public ListWrapperCallbackApplicationRole getCallback() {
+    public Object getCallback() {
         return this.callback;
     }
 
@@ -113,7 +113,7 @@ public class SimpleListWrapperApplicationRole {
      *
      * @param callback callback
      */
-    public void setCallback(ListWrapperCallbackApplicationRole callback) {
+    public void setCallback(Object callback) {
         this.callback = callback;
     }
     /**
@@ -197,7 +197,7 @@ public class SimpleListWrapperApplicationRole {
      *
      * @return pagingCallback
      */
-    public ListWrapperCallbackApplicationRole pagingCallback() {
+    public Object pagingCallback() {
         return this.pagingCallback;
     }
 
@@ -207,7 +207,7 @@ public class SimpleListWrapperApplicationRole {
      * @param pagingCallback pagingCallback
      * @return this
      */
-    public SimpleListWrapperApplicationRole pagingCallback(ListWrapperCallbackApplicationRole pagingCallback) {
+    public SimpleListWrapperApplicationRole pagingCallback(Object pagingCallback) {
         this.pagingCallback = pagingCallback;
         return this;
     }
@@ -218,7 +218,7 @@ public class SimpleListWrapperApplicationRole {
      * @return pagingCallback
      */
     @JsonProperty("pagingCallback")
-    public ListWrapperCallbackApplicationRole getPagingCallback() {
+    public Object getPagingCallback() {
         return this.pagingCallback;
     }
 
@@ -227,7 +227,7 @@ public class SimpleListWrapperApplicationRole {
      *
      * @param pagingCallback pagingCallback
      */
-    public void setPagingCallback(ListWrapperCallbackApplicationRole pagingCallback) {
+    public void setPagingCallback(Object pagingCallback) {
         this.pagingCallback = pagingCallback;
     }
     /**

@@ -33,11 +33,10 @@ spec:
         - type: openapi-overlay
           file: spec_patches/overlay.yaml
   patchSets:
-    - code-generation
-  patches:
-    - id: generate-operation-id
+    - id: code-generation
       config:
-        trim-prefix: "/rest/api"
+        generate-operation-id:
+          trim-prefix: "/rest/api"
 
 presets:
   scaffolding:

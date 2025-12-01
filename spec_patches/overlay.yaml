@@ -24,21 +24,19 @@ actions:
     remove: true
   - target: $.components.schemas["JqlQuery"].properties["where"]
     remove: true
+  # string-list
+  - target: $.components.schemas["StringList"]
+    update:
+      type: "string"
+      description: "Item inside of a string array"
+  # property names
+  - target: $.components.schemas["ChangeDetails"].properties["fromString"]
+    remove: true
+  - target: $.components.schemas["ChangeDetails"].properties["toString"]
+    remove: true
   # enum
   - target: $.components.schemas["ApprovalConfiguration"].properties["exclude"].enum
     remove: true
-  #- target: $.components.schemas["ApprovalConfiguration"].properties["exclude"]
-  #  update:
-  #    - description: "A list of roles that should be excluded as possible approvers."
-  #      items:
-  #        description: A list of roles that should be excluded as possible approvers.
-  #        enum:
-  #          - assignee
-  #          - reporter
-  #        nullable: true
-  #        type: string
-  #      nullable: true
-  #      type: array
 
   #- target: $.components.schemas["ExcludeEnumValues"]
   #  update:

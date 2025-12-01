@@ -14,8 +14,8 @@ import javax.annotation.processing.Generated;
 @JsonTypeName("StateEnum")
 @Generated(value = "io.github.primelib.primecodegen")
 public enum StateEnum {
-    FALSE("false"),
-    TRUE("true"),
+    FALSE(false),
+    TRUE(true),
     ;
 
     private final boolean value;

@@ -14,8 +14,8 @@ import javax.annotation.processing.Generated;
 @JsonTypeName("ShowDaysInColumnEnum")
 @Generated(value = "io.github.primelib.primecodegen")
 public enum ShowDaysInColumnEnum {
-    FALSE("false"),
-    TRUE("true"),
+    FALSE(false),
+    TRUE(true),
     ;
 
     private final boolean value;

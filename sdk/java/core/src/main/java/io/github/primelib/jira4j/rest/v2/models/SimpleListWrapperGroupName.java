@@ -27,7 +27,7 @@ import org.jetbrains.annotations.ApiStatus;
 public class SimpleListWrapperGroupName {
 
     @JsonProperty("callback")
-    protected ListWrapperCallbackGroupName callback;
+    protected Object callback;
 
     @JsonProperty("items")
     protected List<GroupName> items;
@@ -36,7 +36,7 @@ public class SimpleListWrapperGroupName {
     protected Integer maxResults;
 
     @JsonProperty("pagingCallback")
-    protected ListWrapperCallbackGroupName pagingCallback;
+    protected Object pagingCallback;
 
     @JsonProperty("size")
     protected Integer size;
@@ -69,7 +69,7 @@ public class SimpleListWrapperGroupName {
      * @param size size
      */
     @ApiStatus.Internal
-    public SimpleListWrapperGroupName(ListWrapperCallbackGroupName callback, List<GroupName> items, Integer maxResults, ListWrapperCallbackGroupName pagingCallback, Integer size) {
+    public SimpleListWrapperGroupName(Object callback, List<GroupName> items, Integer maxResults, Object pagingCallback, Integer size) {
         this.callback = callback;
         this.items = items;
         this.maxResults = maxResults;
@@ -83,7 +83,7 @@ public class SimpleListWrapperGroupName {
      *
      * @return callback
      */
-    public ListWrapperCallbackGroupName callback() {
+    public Object callback() {
         return this.callback;
     }
 
@@ -93,7 +93,7 @@ public class SimpleListWrapperGroupName {
      * @param callback callback
      * @return this
      */
-    public SimpleListWrapperGroupName callback(ListWrapperCallbackGroupName callback) {
+    public SimpleListWrapperGroupName callback(Object callback) {
         this.callback = callback;
         return this;
     }
@@ -104,7 +104,7 @@ public class SimpleListWrapperGroupName {
      * @return callback
      */
     @JsonProperty("callback")
-    public ListWrapperCallbackGroupName getCallback() {
+    public Object getCallback() {
         return this.callback;
     }
 
@@ -113,7 +113,7 @@ public class SimpleListWrapperGroupName {
      *
      * @param callback callback
      */
-    public void setCallback(ListWrapperCallbackGroupName callback) {
+    public void setCallback(Object callback) {
         this.callback = callback;
     }
     /**
@@ -197,7 +197,7 @@ public class SimpleListWrapperGroupName {
      *
      * @return pagingCallback
      */
-    public ListWrapperCallbackGroupName pagingCallback() {
+    public Object pagingCallback() {
         return this.pagingCallback;
     }
 
@@ -207,7 +207,7 @@ public class SimpleListWrapperGroupName {
      * @param pagingCallback pagingCallback
      * @return this
      */
-    public SimpleListWrapperGroupName pagingCallback(ListWrapperCallbackGroupName pagingCallback) {
+    public SimpleListWrapperGroupName pagingCallback(Object pagingCallback) {
         this.pagingCallback = pagingCallback;
         return this;
     }
@@ -218,7 +218,7 @@ public class SimpleListWrapperGroupName {
      * @return pagingCallback
      */
     @JsonProperty("pagingCallback")
-    public ListWrapperCallbackGroupName getPagingCallback() {
+    public Object getPagingCallback() {
         return this.pagingCallback;
     }
 
@@ -227,7 +227,7 @@ public class SimpleListWrapperGroupName {
      *
      * @param pagingCallback pagingCallback
      */
-    public void setPagingCallback(ListWrapperCallbackGroupName pagingCallback) {
+    public void setPagingCallback(Object pagingCallback) {
         this.pagingCallback = pagingCallback;
     }
     /**

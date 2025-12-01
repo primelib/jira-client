@@ -22,9 +22,7 @@ import org.jetbrains.annotations.ApiStatus;
     "fieldId",
     "fieldtype",
     "from",
-    "fromString",
-    "to",
-    "toString"
+    "to"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class ChangeDetails {
@@ -54,22 +52,10 @@ public class ChangeDetails {
     protected String from;
 
     /**
-     * The details of the original value as a string.
-     */
-    @JsonProperty("fromString")
-    protected String fromString;
-
-    /**
      * The details of the new value.
      */
     @JsonProperty("to")
     protected String to;
-
-    /**
-     * The details of the new value as a string.
-     */
-    @JsonProperty("toString")
-    protected String toString;
 
     /**
      * Constructs a validated instance of {@link ChangeDetails}.
@@ -96,19 +82,15 @@ public class ChangeDetails {
      * @param fieldId The ID of the field changed.
      * @param fieldtype The type of the field changed.
      * @param from The details of the original value.
-     * @param fromString The details of the original value as a string.
      * @param to The details of the new value.
-     * @param toString The details of the new value as a string.
      */
     @ApiStatus.Internal
-    public ChangeDetails(String field, String fieldId, String fieldtype, String from, String fromString, String to, String toString) {
+    public ChangeDetails(String field, String fieldId, String fieldtype, String from, String to) {
         this.field = field;
         this.fieldId = fieldId;
         this.fieldtype = fieldtype;
         this.from = from;
-        this.fromString = fromString;
         this.to = to;
-        this.toString = toString;
     }
 
 
@@ -297,52 +279,6 @@ public class ChangeDetails {
         this.from = from;
     }
     /**
-     * Fluent getter for fromString.
-     * <p>
-     * The details of the original value as a string.
-     *
-     * @return fromString
-     */
-    public String fromString() {
-        return this.fromString;
-    }
-
-    /**
-     * Fluent setter for fromString.
-     * <p>
-     * The details of the original value as a string.
-     *
-     * @param fromString fromString
-     * @return this
-     */
-    public ChangeDetails fromString(String fromString) {
-        this.fromString = fromString;
-        return this;
-    }
-
-    /**
-     * Gets the value of fromString.
-     * <p>
-     * The details of the original value as a string.
-     *
-     * @return fromString
-     */
-    @JsonProperty("fromString")
-    public String getFromString() {
-        return this.fromString;
-    }
-
-    /**
-     * Sets the value of fromString.
-     * <p>
-     * The details of the original value as a string.
-     *
-     * @param fromString fromString
-     */
-    public void setFromString(String fromString) {
-        this.fromString = fromString;
-    }
-    /**
      * Fluent getter for to.
      * <p>
      * The details of the new value.
@@ -388,52 +324,6 @@ public class ChangeDetails {
     public void setTo(String to) {
         this.to = to;
     }
-    /**
-     * Fluent getter for toString.
-     * <p>
-     * The details of the new value as a string.
-     *
-     * @return toString
-     */
-    public String toString() {
-        return this.toString;
-    }
-
-    /**
-     * Fluent setter for toString.
-     * <p>
-     * The details of the new value as a string.
-     *
-     * @param toString toString
-     * @return this
-     */
-    public ChangeDetails toString(String toString) {
-        this.toString = toString;
-        return this;
-    }
-
-    /**
-     * Gets the value of toString.
-     * <p>
-     * The details of the new value as a string.
-     *
-     * @return toString
-     */
-    @JsonProperty("toString")
-    public String getToString() {
-        return this.toString;
-    }
-
-    /**
-     * Sets the value of toString.
-     * <p>
-     * The details of the new value as a string.
-     *
-     * @param toString toString
-     */
-    public void setToString(String toString) {
-        this.toString = toString;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -445,9 +335,7 @@ public class ChangeDetails {
             Objects.equals(this.fieldId, that.fieldId) &&
             Objects.equals(this.fieldtype, that.fieldtype) &&
             Objects.equals(this.from, that.from) &&
-            Objects.equals(this.fromString, that.fromString) &&
-            Objects.equals(this.to, that.to) &&
-            Objects.equals(this.toString, that.toString);
+            Objects.equals(this.to, that.to);
     }
 
     @Override
@@ -457,9 +345,7 @@ public class ChangeDetails {
             this.fieldId, 
             this.fieldtype, 
             this.from, 
-            this.fromString, 
-            this.to, 
-            this.toString
+            this.to
         );
     }
 
@@ -470,9 +356,7 @@ public class ChangeDetails {
             "fieldId=" + fieldId + ", " + 
             "fieldtype=" + fieldtype + ", " + 
             "from=" + from + ", " + 
-            "fromString=" + fromString + ", " + 
-            "to=" + to + ", " + 
-            "toString=" + toString +
+            "to=" + to +
             "}";
     }
 }

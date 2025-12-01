@@ -61,7 +61,7 @@ public class Get2ProjectRecentV1OperationSpec {
      *
      */
     @Nullable
-    private List<StringList> properties;
+    private List<String> properties;
 
     /**
      * Constructs a validated instance of {@link Get2ProjectRecentV1OperationSpec}.

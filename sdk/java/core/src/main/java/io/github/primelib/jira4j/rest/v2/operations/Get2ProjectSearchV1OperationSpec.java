@@ -154,7 +154,7 @@ public class Get2ProjectSearchV1OperationSpec {
      *
      */
     @Nullable
-    private List<StringList> properties;
+    private List<String> properties;
 
     /**
      * EXPERIMENTAL. A query string used to search properties. The query string cannot be specified using a JSON object. For example, to search for the value of `nested` from `{"something":{"nested":1,"other":2}}` use `[thepropertykey].something.nested=1`. Note that the propertyQuery key is enclosed in square brackets to enable searching where the propertyQuery key includes dot (.) or equals (=) characters. Note that `thepropertykey` is only returned when included in `properties`.
